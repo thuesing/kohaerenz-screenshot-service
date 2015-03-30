@@ -15,3 +15,12 @@ The container is configured to write screenshots to `/srv`, so bind-mounting `$P
                                     "800px*600px" window, clipped to 800x600
 
     $ docker run -v $PWD:/srv ubermuda/screenshot http://www.google.com/ google.com.png 1920px
+
+# ok, 
+
+docker run -v $PWD:/srv ubermuda/screenshot http://kohaerenz.liaise-toolbox.eu/assets/matrizen/MatrixParam.html?ZZ.Matrix.Alle.csv+Alle%20Ziele+Ziele/Ziele AlleZiele.png
+
+see
+https://github.com/ariya/phantomjs/blob/master/examples/render_multi_url.js
+
+see script
