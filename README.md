@@ -20,7 +20,22 @@ The container is configured to write screenshots to `/srv`, so bind-mounting `$P
 
 docker run -v $PWD:/srv ubermuda/screenshot http://kohaerenz.liaise-toolbox.eu/assets/matrizen/MatrixParam.html?ZZ.Matrix.Alle.csv+Alle%20Ziele+Ziele/Ziele AlleZiele.png
 
-see
-https://github.com/ariya/phantomjs/blob/master/examples/render_multi_url.js
+# keep alive server
+ENTRYPOINT ["/phantomjs/bin/phantomjs", "/serverkeepalive.js"]
 
-see script
+
+# run as background process
+# -p 8080:80 publishes port 80 in the container to 8080 on the host machine.
+# -d detaches from the process
+# use docker ps and docker stop to … stop.
+
+# serverkeepalive.js at localhost:8080
+docker build -t thuesing/dev .
+docker run -p 8080:80 -d thuesing/dev
+
+
+
+
+
+
+
