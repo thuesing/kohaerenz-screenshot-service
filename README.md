@@ -1,6 +1,13 @@
+call: http://localhost:8080/ZZ.Matrix.Alle.csv+Ziele/Ziele
+docker run  --name="phantomjs" -v $PWD:/srv -p 8080:80 -d thuesing/dev
+see also: deploy.sh
+
+Page to shot ist configured in Dockerfile ENV
+
+
 A web screenshot container based on [phantomjs](http://phantomjs.org/)'s [rasterize.js](https://raw.githubusercontent.com/ariya/phantomjs/master/examples/rasterize.js).
 
-Based on my [phantomjs container](https://github.com/ubermuda/docker-phantomjs).
+Based on (https://github.com/ubermuda/docker-phantomjs).
 
 ## Usage
 
@@ -15,23 +22,6 @@ The container is configured to write screenshots to `/srv`, so bind-mounting `$P
                                     "800px*600px" window, clipped to 800x600
 
     $ docker run -v $PWD:/srv ubermuda/screenshot http://www.google.com/ google.com.png 1920px
-
-# ok, 
-
-docker run -v $PWD:/srv ubermuda/screenshot http://kohaerenz.liaise-toolbox.eu/assets/matrizen/MatrixParam.html?ZZ.Matrix.Alle.csv+Alle%20Ziele+Ziele/Ziele AlleZiele.png
-
-# keep alive server
-ENTRYPOINT ["/phantomjs/bin/phantomjs", "/serverkeepalive.js"]
-
-
-# run as background process
-# -p 8080:80 publishes port 80 in the container to 8080 on the host machine.
-# -d detaches from the process
-# use docker ps and docker stop to … stop.
-
-# serverkeepalive.js at localhost:8080
-docker build -t thuesing/dev .
-docker run -p 8080:80 -d thuesing/dev
 
 
 

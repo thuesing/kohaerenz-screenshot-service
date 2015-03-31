@@ -1,15 +1,14 @@
 FROM ubermuda/phantomjs
 
 ADD https://raw.githubusercontent.com/ariya/phantomjs/master/examples/rasterize.js /rasterize.js
-
-ADD hello_world.js /hello_world.js
-ADD serverkeepalive.js /serverkeepalive.js
+ADD server.js /server.js
 
 VOLUME ["/srv"]
 WORKDIR /srv
 
+ENV PAGE_URL http://kohaerenz.liaise-toolbox.eu/assets/matrizen/MatrixScreenshot.html?
+
 EXPOSE 80
 
 # ENTRYPOINT ["/phantomjs/bin/phantomjs", "/rasterize.js"]
-# ENTRYPOINT ["/phantomjs/bin/phantomjs", "/hello_world.js"]
-ENTRYPOINT ["/phantomjs/bin/phantomjs", "/serverkeepalive.js", "80"]
+ENTRYPOINT ["/phantomjs/bin/phantomjs", "/server.js", "80"]

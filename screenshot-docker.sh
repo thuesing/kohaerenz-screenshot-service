@@ -1,4 +1,5 @@
 #!/bin/sh
+# run phantomjs/rasterize.js from docker image with shell param for page to render
 # needs 1 params for Sektor Massnahme  
 if [ $# -ne 3 ] 
  then 
