@@ -1,3 +1,4 @@
+// Get request url contain sometimes the favicon, do POST??
 var port, server, service,
     system = require('system');
 
